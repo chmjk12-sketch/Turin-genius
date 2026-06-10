@@ -3,18 +3,23 @@ import { Search } from 'lucide-react'
 interface SearchBarProps {
   value: string
   onChange: (value: string) => void
+  placeholder?: string
 }
 
-export function SearchBar({ value, onChange }: SearchBarProps) {
+export function SearchBar({
+  value,
+  onChange,
+  placeholder = '搜索 Agent 名称、描述或分类…',
+}: SearchBarProps) {
   return (
-    <div className="relative">
-      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+    <div className="relative w-full max-w-2xl">
+      <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-500" />
       <input
-        type="text"
+        type="search"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder="搜索 Agent..."
-        className="w-full rounded-lg border border-white/10 bg-white/5 py-2 pl-10 pr-4 text-sm text-white placeholder-gray-500 outline-none transition-colors focus:border-purple-500/50 focus:bg-white/10"
+        onChange={(event) => onChange(event.target.value)}
+        placeholder={placeholder}
+        className="h-12 w-full rounded-full border border-neutral-800 bg-neutral-900/80 pl-12 pr-4 text-sm text-neutral-100 placeholder:text-neutral-500 outline-none transition-colors focus:border-neutral-600 focus:bg-neutral-900"
       />
     </div>
   )
