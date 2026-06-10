@@ -1,182 +1,96 @@
-[
-  {
-    "id": "chatgpt",
-    "name": "ChatGPT",
-    "description": "OpenAI 推出的全能对话 AI，支持文本生成、代码编写、创意写作等。",
-    "category": "对话助手",
-    "icon": "Bot",
-    "url": "https://chat.openai.com",
-    "isFeatured": true
-  },
-  {
-    "id": "claude",
-    "name": "Claude",
-    "description": "Anthropic 开发的安全可靠的 AI 助手，擅长长文本理解和分析。",
-    "category": "对话助手",
-    "icon": "Bot",
-    "url": "https://claude.ai",
-    "isFeatured": true
-  },
-  {
-    "id": "deepseek",
-    "name": "DeepSeek",
-    "description": "深度求索出品的大语言模型，性能卓越，支持联网搜索。",
-    "category": "对话助手",
-    "icon": "Bot",
-    "url": "https://chat.deepseek.com",
-    "isFeatured": true
-  },
-  {
-    "id": "doubao",
-    "name": "豆包",
-    "description": "字节跳动推出的 AI 对话助手，功能丰富，响应迅速。",
-    "category": "对话助手",
-    "icon": "Bot",
-    "url": "https://www.doubao.com",
-    "isFeatured": false
-  },
-  {
-    "id": "tongyi",
-    "name": "通义千问",
-    "description": "阿里云出品的大语言模型，支持多轮对话和多模态理解。",
-    "category": "对话助手",
-    "icon": "Bot",
-    "url": "https://tongyi.aliyun.com",
-    "isFeatured": false
-  },
-  {
-    "id": "copilot",
-    "name": "GitHub Copilot",
-    "description": "AI 编程助手，在 IDE 中提供代码补全和上下文建议。",
-    "category": "编程开发",
-    "icon": "Code2",
-    "url": "https://github.com/features/copilot",
-    "isFeatured": true
-  },
-  {
-    "id": "cursor",
-    "name": "Cursor",
-    "description": "AI-first 代码编辑器，内置强大的 AI 辅助编程功能。",
-    "category": "编程开发",
-    "icon": "Terminal",
-    "url": "https://cursor.sh",
-    "isFeatured": true
-  },
-  {
-    "id": "windsurf",
-    "name": "Windsurf",
-    "description": "Codeium 推出的 AI 驱动 IDE，深度集成 AI 工作流。",
-    "category": "编程开发",
-    "icon": "Terminal",
-    "url": "https://codeium.com/windsurf",
-    "isFeatured": false
-  },
-  {
-    "id": "midjourney",
-    "name": "Midjourney",
-    "description": "顶级 AI 图像生成工具，通过 Discord 使用，画质精美。",
-    "category": "图像生成",
-    "icon": "Image",
-    "url": "https://www.midjourney.com",
-    "isFeatured": true
-  },
-  {
-    "id": "dalle",
-    "name": "DALL·E 3",
-    "description": "OpenAI 的图像生成模型，集成在 ChatGPT 中使用。",
-    "category": "图像生成",
-    "icon": "Image",
-    "url": "https://openai.com/dall-e-3",
-    "isFeatured": true
-  },
-  {
-    "id": "stablediffusion",
-    "name": "Stable Diffusion",
-    "description": "开源图像生成模型，支持本地部署和精细控制。",
-    "category": "图像生成",
-    "icon": "Image",
-    "url": "https://stability.ai",
-    "isFeatured": false
-  },
-  {
-    "id": "gamma",
-    "name": "Gamma",
-    "description": "AI 驱动演示文稿工具，快速生成精美的 PPT。",
-    "category": "办公效率",
-    "icon": "Presentation",
-    "url": "https://gamma.app",
-    "isFeatured": true
-  },
-  {
-    "id": "notion-ai",
-    "name": "Notion AI",
-    "description": "集成在 Notion 中的 AI 写作助手，辅助知识管理和创作。",
-    "category": "办公效率",
-    "icon": "FileText",
-    "url": "https://www.notion.so/product/ai",
-    "isFeatured": true
-  },
-  {
-    "id": "perplexity",
-    "name": "Perplexity",
-    "description": "AI 搜索引擎，提供带引用的实时答案和深度研究能力。",
-    "category": "搜索研究",
-    "icon": "Search",
-    "url": "https://www.perplexity.ai",
-    "isFeatured": true
-  },
-  {
-    "id": "consensus",
-    "name": "Consensus",
-    "description": "AI 学术搜索引擎，从论文中提取研究答案。",
-    "category": "搜索研究",
-    "icon": "Search",
-    "url": "https://consensus.app",
-    "isFeatured": false
-  },
-  {
-    "id": "elevenlabs",
-    "name": "ElevenLabs",
-    "description": "先进的 AI 语音合成工具，支持多语言和情感表达。",
-    "category": "音频处理",
-    "icon": "Volume2",
-    "url": "https://elevenlabs.io",
-    "isFeatured": true
-  },
-  {
-    "id": "sunno",
-    "name": "Suno",
-    "description": "AI 音乐生成平台，通过文字描述创作完整歌曲。",
-    "category": "音频处理",
-    "icon": "Music",
-    "url": "https://suno.com",
-    "isFeatured": true
-  },
-  {
-    "id": "runway",
-    "name": "Runway",
-    "description": "AI 视频生成和编辑平台，支持文生视频和图生视频。",
-    "category": "视频生成",
-    "icon": "Video",
-    "url": "https://runwayml.com",
-    "isFeatured": true
-  },
-  {
-    "id": "pika",
-    "name": "Pika",
-    "description": "AI 视频生成工具，操作简单，效果出众。",
-    "category": "视频生成",
-    "icon": "Video",
-    "url": "https://pika.art",
-    "isFeatured": false
-  },
-  {
-    "id": "grok",
-    "name": "Grok",
-    "description": "xAI 推出的 AI 助手，实时获取 X 平台信息。",
-    "category": "对话助手",
-    "icon": "Bot",
-    "url": "https://grok.com",
-    "isFeatured": false
-  }
-]
+{
+  "agents": [
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "description": "AI 原生代码编辑器，集成智能补全、对话式编程与 Agent 工作流，提升开发效率。",
+      "icon": "⚡",
+      "iconBg": "from-violet-600 to-indigo-700",
+      "category": "开发工具",
+      "externalUrl": "https://cursor.com",
+      "embedUrl": "https://cursor.com",
+      "lastUpdated": "2025-06-08",
+      "featured": true
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "description": "OpenAI 对话式 AI 助手，支持多轮对话、代码生成、文档分析与创意写作。",
+      "icon": "💬",
+      "iconBg": "from-emerald-600 to-teal-700",
+      "category": "对话助手",
+      "externalUrl": "https://chatgpt.com",
+      "embedUrl": "https://chatgpt.com",
+      "lastUpdated": "2025-06-07",
+      "featured": true
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "description": "Anthropic 出品的长上下文 AI 助手，擅长分析、写作与复杂推理任务。",
+      "icon": "🧠",
+      "iconBg": "from-orange-600 to-amber-700",
+      "category": "对话助手",
+      "externalUrl": "https://claude.ai",
+      "embedUrl": "https://claude.ai",
+      "lastUpdated": "2025-06-06",
+      "featured": true
+    },
+    {
+      "id": "notion-ai",
+      "name": "Notion AI",
+      "description": "在 Notion 工作区中直接使用 AI，整理文档、生成摘要与管理项目任务。",
+      "icon": "📝",
+      "iconBg": "from-neutral-600 to-neutral-800",
+      "category": "生产力",
+      "externalUrl": "https://www.notion.so",
+      "embedUrl": "https://www.notion.so",
+      "lastUpdated": "2025-06-05",
+      "featured": true
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity",
+      "description": "AI 搜索引擎，提供带来源引用的实时答案，适合研究与信息检索。",
+      "icon": "🔍",
+      "iconBg": "from-cyan-600 to-blue-700",
+      "category": "搜索研究",
+      "externalUrl": "https://www.perplexity.ai",
+      "embedUrl": "https://www.perplexity.ai",
+      "lastUpdated": "2025-06-04"
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "description": "GitHub 官方 AI 编程助手，在 IDE 中提供智能代码建议与自动补全。",
+      "icon": "🐙",
+      "iconBg": "from-slate-700 to-slate-900",
+      "category": "开发工具",
+      "externalUrl": "https://github.com/features/copilot",
+      "embedUrl": "https://github.com/features/copilot",
+      "lastUpdated": "2025-06-03"
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "description": "高质量 AI 图像生成工具，通过自然语言描述创作艺术与视觉内容。",
+      "icon": "🎨",
+      "iconBg": "from-fuchsia-600 to-purple-700",
+      "category": "创意设计",
+      "externalUrl": "https://www.midjourney.com",
+      "embedUrl": "https://www.midjourney.com",
+      "lastUpdated": "2025-06-02"
+    },
+    {
+      "id": "demo-embed",
+      "name": "Demo Embed",
+      "description": "可正常内嵌的演示 Agent，用于测试 iframe 加载与返回列表交互。",
+      "icon": "🌐",
+      "iconBg": "from-sky-600 to-blue-700",
+      "category": "演示",
+      "externalUrl": "https://example.com",
+      "embedUrl": "https://example.com",
+      "lastUpdated": "2025-06-10"
+    }
+  ]
+}
