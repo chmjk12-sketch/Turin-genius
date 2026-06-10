@@ -1,14 +1,14 @@
 {
   "agents": [
     {
-      "id": "deploy-rca",
-      "name": "发版根因分析",
-      "description": "Agent Store 首次发版全链路故障复盘，涵盖文件系统死锁、CI 构建失败、UI 不一致等问题的根因分析与修复方案。",
+      "id": "root-cause-agent",
+      "name": "根因分析Agent",
+      "description": "输入商业痛点，智能定位根因与解决方案。支持 AI 深度分析配置，提供历史记录与收藏功能。",
       "icon": "🔬",
       "iconBg": "from-violet-600 to-indigo-700",
       "category": "搜索研究",
-      "externalUrl": "/deploy-rca/deploy-rca.html",
-      "embedUrl": "/deploy-rca/deploy-rca.html",
+      "externalUrl": "https://root-cause-agent.chmjk67.top/",
+      "embedUrl": "https://root-cause-agent.chmjk67.top/",
       "lastUpdated": "2025-06-10",
       "featured": true
     },
