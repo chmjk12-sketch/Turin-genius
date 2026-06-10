@@ -35,6 +35,7 @@ function App() {
         activeCategory={activeCategory}
         onCategoryChange={setActiveCategory}
       />
+
       <main className="flex min-h-screen flex-1 flex-col overflow-hidden">
         {viewMode === 'list' ? (
           <>
@@ -54,9 +55,19 @@ function App() {
                 />
               )}
               <AgentSection
-                title={showFeaturedSection ? '全部 Agent' : 'Agent 列表'}
-                subtitle={activeCategory === '__featured__' ? '为你推荐的 Agent' : activeCategory !== '全部' ? `分类：${activeCategory}` : undefined}
-                agents={showFeaturedSection ? regularAgents : filteredAgents}
+                title={
+                  showFeaturedSection ? '全部 Agent' : 'Agent 列表'
+                }
+                subtitle={
+                  activeCategory === '__featured__'
+                    ? '为你推荐的 Agent'
+                    : activeCategory !== '全部'
+                      ? `分类：${activeCategory}`
+                      : undefined
+                }
+                agents={
+                  showFeaturedSection ? regularAgents : filteredAgents
+                }
                 onEmbed={handleEmbed}
               />
             </div>
