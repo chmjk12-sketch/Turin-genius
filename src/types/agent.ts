@@ -2,16 +2,17 @@ export interface Agent {
   id: string
   name: string
   description: string
-  category: string
   icon: string
-  url: string
-  isFeatured: boolean
+  iconBg: string
+  category: string
+  externalUrl: string
+  embedUrl: string
+  lastUpdated: string
+  featured?: boolean
+}
+
+export interface AgentsData {
+  agents: Agent[]
 }
 
 export type ViewMode = 'list' | 'embed'
-
-export interface Category {
-  id: string
-  name: string
-  icon: string
-}
