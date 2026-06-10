@@ -1,15 +1,15 @@
 {
   "agents": [
     {
-      "id": "cursor",
-      "name": "Cursor",
-      "description": "AI 原生代码编辑器，集成智能补全、对话式编程与 Agent 工作流，提升开发效率。",
-      "icon": "⚡",
+      "id": "deploy-rca",
+      "name": "发版根因分析",
+      "description": "Agent Store 首次发版全链路故障复盘，涵盖文件系统死锁、CI 构建失败、UI 不一致等问题的根因分析与修复方案。",
+      "icon": "🔬",
       "iconBg": "from-violet-600 to-indigo-700",
-      "category": "开发工具",
-      "externalUrl": "https://cursor.com",
-      "embedUrl": "https://cursor.com",
-      "lastUpdated": "2025-06-08",
+      "category": "搜索研究",
+      "externalUrl": "/deploy-rca/deploy-rca.html",
+      "embedUrl": "/deploy-rca/deploy-rca.html",
+      "lastUpdated": "2025-06-10",
       "featured": true
     },
     {
