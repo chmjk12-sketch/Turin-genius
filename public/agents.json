@@ -64,15 +64,15 @@
       "embedSupported": false
     },
     {
-      "id": "github-copilot",
-      "name": "GitHub Copilot",
-      "description": "GitHub 官方 AI 编程助手，在 IDE 中提供智能代码建议与自动补全。",
+      "id": "github",
+      "name": "GitHub",
+      "description": "全球最大的代码托管与协作开发平台，支持 Git 版本控制、Issue 管理、CI/CD 与开源社区。",
       "icon": "🐙",
       "iconBg": "from-slate-700 to-slate-900",
       "category": "开发工具",
-      "externalUrl": "https://github.com/features/copilot",
-      "embedUrl": "https://github.com/features/copilot",
-      "lastUpdated": "2025-06-03",
+      "externalUrl": "https://github.com",
+      "embedUrl": "https://github.com",
+      "lastUpdated": "2025-06-11",
       "embedSupported": false
     },
     {
@@ -97,6 +97,30 @@
       "externalUrl": "https://example.com",
       "embedUrl": "https://example.com",
       "lastUpdated": "2025-06-10",
+      "embedSupported": true
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "description": "字节跳动推出的 AI 对话助手，支持多轮对话、文档分析、AI 搜索与创意写作，响应迅速。",
+      "icon": "🫘",
+      "iconBg": "from-red-500 to-orange-600",
+      "category": "对话助手",
+      "externalUrl": "https://www.doubao.com",
+      "embedUrl": "https://www.doubao.com",
+      "lastUpdated": "2025-06-10",
+      "embedSupported": false
+    },
+    {
+      "id": "agent-store-admin",
+      "name": "Agent Store 管理",
+      "description": "Agent Store 应用商店管理后台，支持上架/下架应用、调整分类排序、管理图标等操作。",
+      "icon": "⚙️",
+      "iconBg": "from-violet-600 to-indigo-700",
+      "category": "开发工具",
+      "externalUrl": "/admin/",
+      "embedUrl": "/admin/",
+      "lastUpdated": "2025-06-11",
       "embedSupported": true
     }
   ]
