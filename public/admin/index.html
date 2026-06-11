@@ -879,24 +879,28 @@ async function publishChanges() {
     const token = getToken();
     if (!token) { statusEl.textContent = '❌ 需要 GitHub Token 才能发布'; return; }
 
-    // Get SHA
-    const r1 = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/src/data/agents.json`, {
-      headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (!r1.ok) throw new Error('无法获取文件信息: ' + r1.status);
-    const fileInfo = await r1.json();
+    const files = ['src/data/agents.json', 'public/agents.json'];
+    for (const filePath of files) {
+      // Get SHA
+      const r1 = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`, {
+        headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json' }
+      });
+      if (!r1.ok) throw new Error('无法获取 ' + filePath + ' 信息: ' + r1.status);
+      const fileInfo = await r1.json();
 
-    // Push
-    const r2 = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/src/data/agents.json`, {
-      method: 'PUT',
-      headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: 'feat: admin panel update agents',
-        content: base64,
-        sha: fileInfo.sha,
-      })
-    });
-    if (!r2.ok) throw new Error('推送失败: ' + r2.status);
+      // Push
+      const r2 = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`, {
+        method: 'PUT',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: 'feat: admin panel update agents',
+          content: base64,
+          sha: fileInfo.sha,
+        })
+      });
+      if (!r2.ok) throw new Error('推送 ' + filePath + ' 失败: ' + r2.status);
+      addLog('✅ 已推送: ' + filePath);
+    }
 
     statusEl.className = 'publish-status show success';
     statusEl.textContent = '✅ 已推送到 GitHub，部署约 2-3 分钟生效';
