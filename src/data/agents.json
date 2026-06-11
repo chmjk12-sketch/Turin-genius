@@ -98,6 +98,18 @@
       "embedUrl": "https://example.com",
       "lastUpdated": "2025-06-10",
       "embedSupported": true
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "description": "字节跳动推出的 AI 对话助手，支持多轮对话、文档分析、AI 搜索与创意写作，响应迅速。",
+      "icon": "🫘",
+      "iconBg": "from-red-500 to-orange-600",
+      "category": "对话助手",
+      "externalUrl": "https://www.doubao.com",
+      "embedUrl": "https://www.doubao.com",
+      "lastUpdated": "2025-06-10",
+      "embedSupported": false
     }
   ]
 }
