@@ -869,26 +869,39 @@ async function publishChanges() {
   if (!confirm('确认将当前修改发布到线上？')) return;
 
   const statusEl = document.getElementById('publish-status');
-  statusEl.className = 'publish-status show loading';
-  statusEl.textContent = '⏳ 正在发布...';
+  const logEl = document.getElementById('log-list');
+  logEl.classList.add('show');
 
-  const content = JSON.stringify({ agents }, null, 2);
-  const base64 = btoa(unescape(encodeURIComponent(content)));
+  function setStatus(type, msg) {
+    statusEl.className = 'publish-status show ' + type;
+    statusEl.textContent = msg;
+    addLog('[' + type + '] ' + msg);
+  }
+
+  setStatus('loading', '⏳ 准备发布...');
 
   try {
     const token = getToken();
-    if (!token) { statusEl.textContent = '❌ 需要 GitHub Token 才能发布'; return; }
+    if (!token) {
+      setStatus('error', '❌ 需要 GitHub Token 才能发布');
+      return;
+    }
+    setStatus('loading', '🔑 Token 已获取');
+
+    const content = JSON.stringify({ agents }, null, 2);
+    const base64 = btoa(unescape(encodeURIComponent(content)));
+    setStatus('loading', '📦 数据已序列化 (' + agents.length + ' 个 Agent)');
 
     const files = ['src/data/agents.json', 'public/agents.json'];
     for (const filePath of files) {
-      // Get SHA
+      setStatus('loading', '⏳ 获取 ' + filePath + ' 的 SHA...');
       const r1 = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`, {
         headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github.v3+json' }
       });
       if (!r1.ok) throw new Error('无法获取 ' + filePath + ' 信息: ' + r1.status);
       const fileInfo = await r1.json();
 
-      // Push
+      setStatus('loading', '🚀 推送 ' + filePath + '...');
       const r2 = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
@@ -899,25 +912,21 @@ async function publishChanges() {
         })
       });
       if (!r2.ok) throw new Error('推送 ' + filePath + ' 失败: ' + r2.status);
-      addLog('✅ 已推送: ' + filePath);
+      setStatus('loading', '✅ 已推送: ' + filePath);
     }
 
-    statusEl.className = 'publish-status show success';
-    statusEl.textContent = '✅ 已推送到 GitHub，部署约 2-3 分钟生效';
+    setStatus('success', '✅ 已推送到 GitHub，部署约 2-3 分钟生效');
 
     // Poll for deployment
-    statusEl.textContent += '\n⏳ 等待部署完成...';
-    await pollDeploy();
+    await pollDeploy(token, setStatus);
 
   } catch(e) {
-    statusEl.className = 'publish-status show error';
-    statusEl.textContent = '❌ 发布失败: ' + e.message;
+    setStatus('error', '❌ 发布失败: ' + (e.message || e));
   }
 }
 
-async function pollDeploy() {
-  const statusEl = document.getElementById('publish-status');
-  const token = getToken();
+async function pollDeploy(token, setStatus) {
+  setStatus('loading', '⏳ 等待部署完成...');
   for (let i = 0; i < 20; i++) {
     await new Promise(r => setTimeout(r, 10000));
     try {
@@ -928,18 +937,18 @@ async function pollDeploy() {
       const run = data.workflow_runs?.[0];
       if (run?.status === 'completed') {
         if (run.conclusion === 'success') {
-          statusEl.textContent = '✅ 已推送到 GitHub，部署成功！';
-          statusEl.className = 'publish-status show success';
+          setStatus('success', '✅ 部署成功！请刷新 Agent Store 页面查看效果');
         } else {
-          statusEl.textContent = `⚠️ 推送成功，但部署 ${run.conclusion}`;
-          statusEl.className = 'publish-status show error';
+          setStatus('error', '⚠️ 推送成功，但部署 ' + run.conclusion);
         }
         return;
       }
-      if (i < 19) statusEl.textContent = `⏳ 部署中 (${(i+1)*10}s)...`;
-    } catch(e) {}
+      setStatus('loading', '⏳ 部署中 (' + ((i+1)*10) + 's / 200s)...');
+    } catch(e) {
+      setStatus('loading', '⏳ 检查部署状态失败，继续等待...');
+    }
   }
-  statusEl.textContent = '✅ 已推送，部署可能还在进行中，请稍后刷新页面查看';
+  setStatus('success', '✅ 已推送，部署可能还在进行中，请稍后刷新页面查看');
 }
 
 // ====== Utils ======
