@@ -1,14 +1,53 @@
-import { useMemo } from 'react'
-import agentsData from '../data/agents.json'
+import { useState, useEffect, useMemo } from 'react'
 import type { Agent, AgentsData } from '../types/agent'
 
 interface UseAgentsOptions {
   searchQuery: string
   category: string
+  refreshKey?: number
 }
 
-export function useAgents({ searchQuery, category }: UseAgentsOptions) {
-  const allAgents = (agentsData as AgentsData).agents
+export function useAgents({ searchQuery, category, refreshKey = 0 }: UseAgentsOptions) {
+  const [allAgents, setAllAgents] = useState<Agent[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadAgents() {
+      try {
+        setLoading(true)
+        // 添加时间戳防止缓存
+        const r = await fetch(`/agents.json?t=${Date.now()}`, {
+          cache: 'no-store',
+          headers: { 'Cache-Control': 'no-cache' }
+        })
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        const data = (await r.json()) as AgentsData
+        if (!cancelled) {
+          setAllAgents(data.agents)
+          setError(null)
+        }
+      } catch (e) {
+        if (!cancelled) {
+          setError(e instanceof Error ? e.message : '加载失败')
+          // fallback: 尝试从编译时静态导入加载
+          try {
+            const fallback = await import('../data/agents.json')
+            setAllAgents((fallback as any).default?.agents || [])
+          } catch {
+            setAllAgents([])
+          }
+        }
+      } finally {
+        if (!cancelled) setLoading(false)
+      }
+    }
+
+    loadAgents()
+    return () => { cancelled = true }
+  }, [refreshKey])
 
   const categories = useMemo(() => {
     const set = new Set(allAgents.map((agent) => agent.category))
@@ -51,6 +90,8 @@ export function useAgents({ searchQuery, category }: UseAgentsOptions) {
     filteredAgents,
     featuredAgents,
     regularAgents,
+    loading,
+    error,
   }
 }
 
