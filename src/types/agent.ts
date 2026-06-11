@@ -9,6 +9,7 @@ export interface Agent {
   embedUrl: string
   lastUpdated: string
   featured?: boolean
+  embedSupported?: boolean
 }
 
 export interface AgentsData {
