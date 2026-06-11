@@ -22,7 +22,8 @@
       "externalUrl": "https://chatgpt.com",
       "embedUrl": "https://chatgpt.com",
       "lastUpdated": "2025-06-07",
-      "featured": true
+      "featured": true,
+      "embedSupported": false
     },
     {
       "id": "claude",
@@ -34,7 +35,8 @@
       "externalUrl": "https://claude.ai",
       "embedUrl": "https://claude.ai",
       "lastUpdated": "2025-06-06",
-      "featured": true
+      "featured": true,
+      "embedSupported": false
     },
     {
       "id": "notion-ai",
@@ -46,7 +48,8 @@
       "externalUrl": "https://www.notion.so",
       "embedUrl": "https://www.notion.so",
       "lastUpdated": "2025-06-05",
-      "featured": true
+      "featured": true,
+      "embedSupported": false
     },
     {
       "id": "perplexity",
@@ -57,7 +60,8 @@
       "category": "搜索研究",
       "externalUrl": "https://www.perplexity.ai",
       "embedUrl": "https://www.perplexity.ai",
-      "lastUpdated": "2025-06-04"
+      "lastUpdated": "2025-06-04",
+      "embedSupported": false
     },
     {
       "id": "github-copilot",
@@ -68,7 +72,8 @@
       "category": "开发工具",
       "externalUrl": "https://github.com/features/copilot",
       "embedUrl": "https://github.com/features/copilot",
-      "lastUpdated": "2025-06-03"
+      "lastUpdated": "2025-06-03",
+      "embedSupported": false
     },
     {
       "id": "midjourney",
@@ -79,7 +84,8 @@
       "category": "创意设计",
       "externalUrl": "https://www.midjourney.com",
       "embedUrl": "https://www.midjourney.com",
-      "lastUpdated": "2025-06-02"
+      "lastUpdated": "2025-06-02",
+      "embedSupported": false
     },
     {
       "id": "demo-embed",
@@ -90,7 +96,8 @@
       "category": "演示",
       "externalUrl": "https://example.com",
       "embedUrl": "https://example.com",
-      "lastUpdated": "2025-06-10"
+      "lastUpdated": "2025-06-10",
+      "embedSupported": true
     }
   ]
 }
