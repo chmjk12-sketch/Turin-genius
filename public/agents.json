@@ -1,15 +1,40 @@
 {
   "agents": [
     {
-      "id": "deepseek",
-      "name": "DeepSeek",
-      "description": "深度求索推出的 AI 对话助手，擅长深度推理、代码生成与复杂问题分析，支持长上下文。",
-      "icon": "🔮",
-      "iconBg": "from-blue-600 to-indigo-700",
+      "id": "root-cause-agent",
+      "name": "根因分析Agent",
+      "description": "输入商业痛点，智能定位根因与解决方案。支持 AI 深度分析配置，提供历史记录与收藏功能。",
+      "icon": "🔬",
+      "iconBg": "from-violet-600 to-indigo-700",
+      "category": "搜索研究",
+      "externalUrl": "https://root-cause-agent.chmjk67.top/",
+      "embedUrl": "https://root-cause-agent.chmjk67.top/",
+      "lastUpdated": "2025-06-10",
+      "featured": true
+    },
+    {
+      "id": "notion-ai",
+      "name": "Notion AI",
+      "description": "在 Notion 工作区中直接使用 AI，整理文档、生成摘要与管理项目任务。",
+      "icon": "📝",
+      "iconBg": "from-neutral-600 to-neutral-800",
+      "category": "生产力",
+      "externalUrl": "https://www.notion.so",
+      "embedUrl": "https://www.notion.so",
+      "lastUpdated": "2025-06-05",
+      "featured": true,
+      "embedSupported": false
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "description": "字节跳动推出的 AI 对话助手，支持多轮对话、文档分析、AI 搜索与创意写作，响应迅速。",
+      "icon": "🫘",
+      "iconBg": "from-red-500 to-orange-600",
       "category": "对话助手",
-      "externalUrl": "https://platform.deepseek.com/",
-      "embedUrl": "https://platform.deepseek.com/",
-      "lastUpdated": "2025-06-11",
+      "externalUrl": "https://www.doubao.com",
+      "embedUrl": "https://www.doubao.com",
+      "lastUpdated": "2025-06-10",
       "embedSupported": false
     },
     {
@@ -25,18 +50,6 @@
       "embedSupported": false
     },
     {
-      "id": "root-cause-agent",
-      "name": "根因分析Agent",
-      "description": "输入商业痛点，智能定位根因与解决方案。支持 AI 深度分析配置，提供历史记录与收藏功能。",
-      "icon": "🔬",
-      "iconBg": "from-violet-600 to-indigo-700",
-      "category": "搜索研究",
-      "externalUrl": "https://root-cause-agent.chmjk67.top/",
-      "embedUrl": "https://root-cause-agent.chmjk67.top/",
-      "lastUpdated": "2025-06-10",
-      "featured": true
-    },
-    {
       "id": "chatgpt",
       "name": "ChatGPT",
       "description": "OpenAI 对话式 AI 助手，支持多轮对话、代码生成、文档分析与创意写作。",
@@ -47,6 +60,30 @@
       "embedUrl": "https://chatgpt.com",
       "lastUpdated": "2025-06-07",
       "featured": true,
+      "embedSupported": false
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "description": "全球最大的代码托管与协作开发平台，支持 Git 版本控制、Issue 管理、CI/CD 与开源社区。",
+      "icon": "🐙",
+      "iconBg": "from-slate-700 to-slate-900",
+      "category": "开发工具",
+      "externalUrl": "https://github.com",
+      "embedUrl": "https://github.com",
+      "lastUpdated": "2025-06-11",
+      "embedSupported": false
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "description": "深度求索推出的 AI 对话助手，擅长深度推理、代码生成与复杂问题分析，支持长上下文。",
+      "icon": "🔮",
+      "iconBg": "from-blue-600 to-indigo-700",
+      "category": "对话助手",
+      "externalUrl": "https://platform.deepseek.com/",
+      "embedUrl": "https://platform.deepseek.com/",
+      "lastUpdated": "2025-06-11",
       "embedSupported": false
     },
     {
@@ -63,19 +100,6 @@
       "embedSupported": false
     },
     {
-      "id": "notion-ai",
-      "name": "Notion AI",
-      "description": "在 Notion 工作区中直接使用 AI，整理文档、生成摘要与管理项目任务。",
-      "icon": "📝",
-      "iconBg": "from-neutral-600 to-neutral-800",
-      "category": "生产力",
-      "externalUrl": "https://www.notion.so",
-      "embedUrl": "https://www.notion.so",
-      "lastUpdated": "2025-06-05",
-      "featured": true,
-      "embedSupported": false
-    },
-    {
       "id": "perplexity",
       "name": "Perplexity",
       "description": "AI 搜索引擎，提供带来源引用的实时答案，适合研究与信息检索。",
@@ -85,18 +109,6 @@
       "externalUrl": "https://www.perplexity.ai",
       "embedUrl": "https://www.perplexity.ai",
       "lastUpdated": "2025-06-04",
-      "embedSupported": false
-    },
-    {
-      "id": "github",
-      "name": "GitHub",
-      "description": "全球最大的代码托管与协作开发平台，支持 Git 版本控制、Issue 管理、CI/CD 与开源社区。",
-      "icon": "🐙",
-      "iconBg": "from-slate-700 to-slate-900",
-      "category": "开发工具",
-      "externalUrl": "https://github.com",
-      "embedUrl": "https://github.com",
-      "lastUpdated": "2025-06-11",
       "embedSupported": false
     },
     {
@@ -122,18 +134,6 @@
       "embedUrl": "https://example.com",
       "lastUpdated": "2025-06-10",
       "embedSupported": true
-    },
-    {
-      "id": "doubao",
-      "name": "豆包",
-      "description": "字节跳动推出的 AI 对话助手，支持多轮对话、文档分析、AI 搜索与创意写作，响应迅速。",
-      "icon": "🫘",
-      "iconBg": "from-red-500 to-orange-600",
-      "category": "对话助手",
-      "externalUrl": "https://www.doubao.com",
-      "embedUrl": "https://www.doubao.com",
-      "lastUpdated": "2025-06-10",
-      "embedSupported": false
     },
     {
       "id": "agent-store-admin",
