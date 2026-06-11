@@ -485,6 +485,13 @@
         <input type="checkbox" id="f-featured">
         <label style="margin:0;cursor:pointer;">推荐 (显示在推荐区)</label>
       </div>
+      <div class="checkbox-row" style="margin-top:0.5rem;">
+        <input type="checkbox" id="f-embedSupported" checked>
+        <label style="margin:0;cursor:pointer;">支持 iframe 内嵌</label>
+      </div>
+      <div style="font-size:0.75rem;color:var(--warn);margin-top:0.35rem;margin-left:1.5rem;">
+        ⚠️ ChatGPT、Notion、Claude 等外部站点禁止 iframe 内嵌，取消勾选即可隐藏内嵌按钮
+      </div>
     </div>
 
     <div class="form-actions">
@@ -666,6 +673,7 @@ function renderAgents() {
       <span class="name">${agent.name}</span>
       <span class="tag">${agent.category}</span>
       ${agent.featured ? '<span class="tag featured">推荐</span>' : ''}
+      ${agent.embedSupported === false ? '<span class="tag" style="background:rgba(248,113,113,0.15);color:var(--danger);">仅外链</span>' : ''}
     `;
     const desc = document.createElement('div');
     desc.className = 'desc';
@@ -770,6 +778,7 @@ function openEditModal(id) {
   document.getElementById('f-externalUrl').value = agent.externalUrl || '';
   document.getElementById('f-embedUrl').value = agent.embedUrl || '';
   document.getElementById('f-featured').checked = !!agent.featured;
+  document.getElementById('f-embedSupported').checked = agent.embedSupported !== false;
   
   // Populate categories
   const sel = document.getElementById('f-category');
@@ -798,6 +807,7 @@ function clearForm() {
   document.getElementById('f-externalUrl').value = '';
   document.getElementById('f-embedUrl').value = '';
   document.getElementById('f-featured').checked = false;
+  document.getElementById('f-embedSupported').checked = true;
   const sel = document.getElementById('f-category');
   sel.innerHTML = '';
   allCategories.filter(c => c !== '全部').forEach(cat => {
@@ -827,6 +837,7 @@ function saveAgent() {
     embedUrl: document.getElementById('f-embedUrl').value.trim() || document.getElementById('f-externalUrl').value.trim(),
     lastUpdated: new Date().toISOString().split('T')[0],
     featured: document.getElementById('f-featured').checked || undefined,
+    embedSupported: document.getElementById('f-embedSupported').checked || undefined,
   };
 
   if (editingId) {
