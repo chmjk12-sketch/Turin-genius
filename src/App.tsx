@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { AgentSection } from './components/agents/AgentSection'
 import { AgentEmbedView } from './components/embed/AgentEmbedView'
 import { MainHeader } from './components/layout/MainHeader'
@@ -11,9 +11,10 @@ function App() {
   const [selectedAgent, setSelectedAgent] = useState<Agent | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [activeCategory, setActiveCategory] = useState('全部')
+  const [refreshKey, setRefreshKey] = useState(0)
 
-  const { categories, filteredAgents, featuredAgents, regularAgents } =
-    useAgents({ searchQuery, category: activeCategory })
+  const { categories, filteredAgents, featuredAgents, regularAgents, loading, error } =
+    useAgents({ searchQuery, category: activeCategory, refreshKey })
 
   const handleEmbed = (agent: Agent) => {
     setSelectedAgent(agent)
@@ -24,6 +25,10 @@ function App() {
     setViewMode('list')
     setSelectedAgent(null)
   }
+
+  const handleRefresh = useCallback(() => {
+    setRefreshKey(k => k + 1)
+  }, [])
 
   const showFeaturedSection =
     activeCategory === '全部' && featuredAgents.length > 0 && !searchQuery.trim()
@@ -45,6 +50,20 @@ function App() {
               resultCount={filteredAgents.length}
             />
             <div className="flex-1 overflow-y-auto px-8 py-8">
+              {/* 刷新按钮 */}
+              <div className="mb-4 flex items-center justify-between">
+                <div className="text-sm text-neutral-500">
+                  {loading ? '⏳ 加载中...' : error ? `⚠️ ${error}` : `共 ${filteredAgents.length} 个 Agent`}
+                </div>
+                <button
+                  onClick={handleRefresh}
+                  disabled={loading}
+                  className="rounded-lg border border-neutral-700 bg-neutral-900 px-3 py-1.5 text-sm text-neutral-400 transition-colors hover:border-neutral-500 hover:text-white disabled:opacity-50"
+                >
+                  {loading ? '刷新中...' : '🔄 刷新数据'}
+                </button>
+              </div>
+
               {showFeaturedSection && (
                 <AgentSection
                   title="推荐 Agent"
