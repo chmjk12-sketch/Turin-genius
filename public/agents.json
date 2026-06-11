@@ -1,6 +1,30 @@
 {
   "agents": [
     {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "description": "深度求索推出的 AI 对话助手，擅长深度推理、代码生成与复杂问题分析，支持长上下文。",
+      "icon": "🔮",
+      "iconBg": "from-blue-600 to-indigo-700",
+      "category": "对话助手",
+      "externalUrl": "https://platform.deepseek.com/",
+      "embedUrl": "https://platform.deepseek.com/",
+      "lastUpdated": "2025-06-11",
+      "embedSupported": false
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "description": "Google 推出的多模态 AI 助手，支持文本、图像、代码与音频理解，融合 Google 生态。",
+      "icon": "✨",
+      "iconBg": "from-blue-500 to-cyan-600",
+      "category": "对话助手",
+      "externalUrl": "https://gemini.google.com/",
+      "embedUrl": "https://gemini.google.com/",
+      "lastUpdated": "2025-06-11",
+      "embedSupported": false
+    },
+    {
       "id": "root-cause-agent",
       "name": "根因分析Agent",
       "description": "输入商业痛点，智能定位根因与解决方案。支持 AI 深度分析配置，提供历史记录与收藏功能。",
@@ -122,30 +146,6 @@
       "embedUrl": "/admin/",
       "lastUpdated": "2025-06-11",
       "embedSupported": true
-    },
-    {
-      "id": "deepseek",
-      "name": "DeepSeek",
-      "description": "深度求索推出的 AI 对话助手，擅长深度推理、代码生成与复杂问题分析，支持长上下文。",
-      "icon": "🔮",
-      "iconBg": "from-blue-600 to-indigo-700",
-      "category": "对话助手",
-      "externalUrl": "https://platform.deepseek.com/",
-      "embedUrl": "https://platform.deepseek.com/",
-      "lastUpdated": "2025-06-11",
-      "embedSupported": false
-    },
-    {
-      "id": "gemini",
-      "name": "Gemini",
-      "description": "Google 推出的多模态 AI 助手，支持文本、图像、代码与音频理解，融合 Google 生态。",
-      "icon": "✨",
-      "iconBg": "from-blue-500 to-cyan-600",
-      "category": "对话助手",
-      "externalUrl": "https://gemini.google.com/",
-      "embedUrl": "https://gemini.google.com/",
-      "lastUpdated": "2025-06-11",
-      "embedSupported": false
     }
   ]
 }
