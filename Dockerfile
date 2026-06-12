@@ -14,19 +14,24 @@ COPY server/ ./
 FROM node:22-alpine
 WORKDIR /app
 
-# 安装 nginx
+# Install nginx
 RUN apk add --no-cache nginx curl
 
-# 复制前端构建产物
+# Copy frontend build output
 COPY --from=frontend-builder /app/dist /usr/share/nginx/html
 
-# 复制后端代码
+# Copy backend code
 COPY --from=server-builder /server /app/server
 
-# 复制 nginx 配置
+# Copy nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# 复制启动脚本
+# Ensure nginx main.conf exists and includes conf.d
+RUN mkdir -p /etc/nginx/conf.d && \
+    if [ ! -f /etc/nginx/nginx.conf ]; then \
+      echo 'worker_processes auto;\nerror_log /var/log/nginx/error.log warn;\npid /var/run/nginx.pid;\nevents { worker_connections 1024; }\nhttp {\n  include /etc/nginx/mime.types;\n  default_type application/octet-stream;\n  sendfile on;\n  keepalive_timeout 65;\n  include /etc/nginx/conf.d/*.conf;\n}' > /etc/nginx/nginx.conf;\n    fi
+
+# Copy start script
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
