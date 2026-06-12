@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 const PORT = process.env.API_PORT || 3001;
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '';
+const GITHUB_TOKEN = process.env.GH_PAT_TOKEN || '';
 const GITHUB_OWNER = process.env.GITHUB_OWNER || 'chmjk12-sketch';
 const GITHUB_REPO = process.env.GITHUB_REPO || 'Turin-genius';
 const LLM_API_URL = process.env.LLM_API_URL || '';
