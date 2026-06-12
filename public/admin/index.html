@@ -734,6 +734,12 @@ function createAgentCard(agent, idxInSection, sectionList, sectionType) {
   btnEdit.onclick = function() { openEditModal(agent.id); };
   btnEdit.textContent = '\u7F16\u8F91';
 
+  var btnToggle = document.createElement('button');
+  btnToggle.className = 'btn btn-ghost btn-sm';
+  btnToggle.style.cssText = agent.featured ? 'color:var(--accent);' : 'color:var(--muted);';
+  btnToggle.onclick = function() { toggleFeatured(agent.id); };
+  btnToggle.textContent = agent.featured ? '\u2605 \u53D6\u6D88\u63A8\u8350' : '\u2606 \设\u4E3A\u63A8\u8350';
+
   var btnDel = document.createElement('button');
   btnDel.className = 'btn btn-danger btn-sm';
   btnDel.onclick = function() { deleteAgent(agent.id); };
@@ -742,6 +748,7 @@ function createAgentCard(agent, idxInSection, sectionList, sectionType) {
   actions.appendChild(btnUp);
   actions.appendChild(btnDown);
   actions.appendChild(btnEdit);
+  actions.appendChild(btnToggle);
   actions.appendChild(btnDel);
 
   card.appendChild(drag);
@@ -820,6 +827,15 @@ function swapCards(draggedOver) {
   [agents[fromIdx], agents[toIdx]] = [agents[toIdx], agents[fromIdx]];
   renderAgents();
   addLog('\u4EA4\u6362\u4F4D\u7F6E: ' + agents[fromIdx].name + ' <-> ' + agents[toIdx].name);
+}
+
+function toggleFeatured(id) {
+  const idx = agents.findIndex(a => a.id === id);
+  if (idx === -1) return;
+  agents[idx].featured = !agents[idx].featured;
+  addLog((agents[idx].featured ? '\u2605 \u8BBE\u4E3A\u63A8\u8350: ' : '\u2606 \u53D6\u6D88\u63A8\u8350: ') + agents[idx].name);
+  renderAgents();
+  updateCount();
 }
 
 function deleteAgent(id) {
