@@ -26,6 +26,18 @@
       "embedSupported": false
     },
     {
+      "id": "cfa-stock",
+      "name": "CFA Stock Discovery",
+      "description": "A 股投资机会发现工具，智能识别高价值投资机会、行业机会地图、候选股票池与风险预警。",
+      "icon": "📈",
+      "iconBg": "from-green-600 to-emerald-700",
+      "category": "金融投资",
+      "externalUrl": "https://cfa-stock.chmjk67.top/",
+      "embedUrl": "https://cfa-stock.chmjk67.top/",
+      "lastUpdated": "2025-06-11",
+      "featured": false
+    },
+    {
       "id": "doubao",
       "name": "豆包",
       "description": "字节跳动推出的 AI 对话助手，支持多轮对话、文档分析、AI 搜索与创意写作，响应迅速。",
@@ -146,18 +158,6 @@
       "embedUrl": "/admin/",
       "lastUpdated": "2025-06-11",
       "embedSupported": true
-    },
-    {
-      "id": "cfa-stock",
-      "name": "CFA Stock Discovery",
-      "description": "A 股投资机会发现工具，智能识别高价值投资机会、行业机会地图、候选股票池与风险预警。",
-      "icon": "📈",
-      "iconBg": "from-green-600 to-emerald-700",
-      "category": "金融投资",
-      "externalUrl": "https://cfa-stock.chmjk67.top/",
-      "embedUrl": "https://cfa-stock.chmjk67.top/",
-      "lastUpdated": "2025-06-11",
-      "featured": false
     }
   ]
 }
