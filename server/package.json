@@ -1,0 +1,13 @@
+{
+  "name": "agent-store-server",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.0.0",
+    "express": "^4.21.0"
+  }
+}
