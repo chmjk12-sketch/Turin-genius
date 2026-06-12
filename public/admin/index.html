@@ -388,6 +388,36 @@
   }
   .log-list .log-item:last-child { border-bottom: none; }
 
+  /* Section */
+  .section-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    padding: 1rem 0 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-label .badge-count {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .section-divider {
+    border: none;
+    border-top: 1px dashed var(--rule);
+    margin: 1.5rem 0;
+  }
+  .section-tip {
+    font-size: 0.75rem;
+    color: var(--muted);
+    padding: 0.5rem 0;
+    text-align: center;
+    font-style: italic;
+  }
+
   /* Responsive */
   @media (max-width: 600px) {
     #admin-panel { padding: 1rem; }
@@ -613,7 +643,7 @@ function extractCategories() {
 }
 
 function updateCount() {
-  document.getElementById('agent-count').textContent = filteredAgents().length + '/' + agents.length + ' 个 Agent';
+  document.getElementById('agent-count').textContent = agents.length + ' 个 (推荐 ' + agents.filter(a=>a.featured).length + ' + 全部 ' + agents.filter(a=>!a.featured).length + ')';
 }
 
 function filteredAgents() {
@@ -642,106 +672,154 @@ function setFilter(cat) {
   renderAgents();
 }
 
+function createAgentCard(agent, idxInSection, sectionList, sectionType) {
+  const card = document.createElement('div');
+  card.className = 'agent-card';
+  card.draggable = true;
+  card.dataset.id = agent.id;
+  card.dataset.section = sectionType;
+
+  const drag = document.createElement('div');
+  drag.className = 'drag-handle';
+  drag.textContent = String.fromCharCode(0x283F);
+
+  const icon = document.createElement('div');
+  icon.className = 'icon-display';
+  const isEmoji = !agent.icon.startsWith('http') && !agent.icon.startsWith('/');
+  const bg0 = (agent.iconBg && agent.iconBg.replace('from-','').split(' ')[0]) || '#333';
+  const bg1 = (agent.iconBg && agent.iconBg.split(' ')[1]) || '#222';
+  icon.style.background = isEmoji ? 'linear-gradient(135deg, ' + bg0 + ', ' + bg1 + ')' : 'var(--bg3)';
+  icon.textContent = isEmoji ? agent.icon : String.fromCharCode(0x1F916);
+
+  const info = document.createElement('div');
+  info.className = 'info';
+  const nameRow = document.createElement('div');
+  nameRow.className = 'name-row';
+  var tags = '<span class="tag">' + agent.category + '</span>';
+  if (agent.featured) tags += '<span class="tag featured">\u2605 \u63A8\u8350</span>';
+  if (agent.embedSupported === false) tags += '<span class="tag" style="background:rgba(248,113,113,0.15);color:var(--danger);">\u4EC5\u5916\u94FE</span>';
+  nameRow.innerHTML = '<span class="name">' + agent.name + '</span>' + tags;
+
+  const desc = document.createElement('div');
+  desc.className = 'desc';
+  desc.textContent = agent.description;
+
+  const url = document.createElement('div');
+  url.className = 'url';
+  url.textContent = agent.externalUrl;
+
+  info.appendChild(nameRow);
+  info.appendChild(desc);
+  info.appendChild(url);
+
+  const actions = document.createElement('div');
+  actions.className = 'actions';
+  var upDisabled = idxInSection === 0 ? ' disabled style="opacity:0.3"' : '';
+  var downDisabled = idxInSection === sectionList.length - 1 ? ' disabled style="opacity:0.3"' : '';
+
+  var btnUp = document.createElement('button');
+  btnUp.className = 'btn btn-ghost btn-sm';
+  btnUp.onclick = function() { moveAgent(agent.id, -1, sectionType); };
+  btnUp.textContent = '\u2191';
+  if (idxInSection === 0) { btnUp.disabled = true; btnUp.style.opacity = '0.3'; }
+
+  var btnDown = document.createElement('button');
+  btnDown.className = 'btn btn-ghost btn-sm';
+  btnDown.onclick = function() { moveAgent(agent.id, 1, sectionType); };
+  btnDown.textContent = '\u2193';
+  if (idxInSection === sectionList.length - 1) { btnDown.disabled = true; btnDown.style.opacity = '0.3'; }
+
+  var btnEdit = document.createElement('button');
+  btnEdit.className = 'btn btn-ghost btn-sm';
+  btnEdit.onclick = function() { openEditModal(agent.id); };
+  btnEdit.textContent = '\u7F16\u8F91';
+
+  var btnDel = document.createElement('button');
+  btnDel.className = 'btn btn-danger btn-sm';
+  btnDel.onclick = function() { deleteAgent(agent.id); };
+  btnDel.textContent = '\u4E0B\u67B6';
+
+  actions.appendChild(btnUp);
+  actions.appendChild(btnDown);
+  actions.appendChild(btnEdit);
+  actions.appendChild(btnDel);
+
+  card.appendChild(drag);
+  card.appendChild(icon);
+  card.appendChild(info);
+  card.appendChild(actions);
+
+  card.addEventListener('dragstart', function() { card.classList.add('dragging'); });
+  card.addEventListener('dragend', function() { card.classList.remove('dragging'); });
+  card.addEventListener('dragover', function(e) { e.preventDefault(); swapCards(card); });
+
+  return card;
+}
+
 function renderAgents() {
   const el = document.getElementById('agent-list');
   const list = filteredAgents();
   el.innerHTML = '';
-  list.forEach((agent, idx) => {
-    const card = document.createElement('div');
-    card.className = 'agent-card';
-    card.draggable = true;
-    card.dataset.id = agent.id;
 
-    // Drag handle
-    const drag = document.createElement('div');
-    drag.className = 'drag-handle';
-    drag.textContent = '⠿';
+  if (list.length === 0) {
+    el.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--muted);font-size:0.85rem;">\u6CA1\u6709\u5339\u914D\u7684 Agent</div>';
+    return;
+  }
 
-    // Icon
-    const icon = document.createElement('div');
-    icon.className = 'icon-display';
-    const isEmoji = !agent.icon.startsWith('http') && !agent.icon.startsWith('/');
-    icon.style.background = isEmoji ? `linear-gradient(135deg, ${agent.iconBg?.replace('from-','').split(' ')[0] || '#333'}, ${agent.iconBg?.split(' ')[1] || '#222'})` : 'var(--bg3)';
-    icon.textContent = isEmoji ? agent.icon : '🤖';
+  const featuredList = list.filter(a => a.featured);
+  const regularList = list.filter(a => !a.featured);
 
-    // Info
-    const info = document.createElement('div');
-    info.className = 'info';
-    const nameRow = document.createElement('div');
-    nameRow.className = 'name-row';
-    nameRow.innerHTML = `
-      <span class="name">${agent.name}</span>
-      <span class="tag">${agent.category}</span>
-      ${agent.featured ? '<span class="tag featured">推荐</span>' : ''}
-      ${agent.embedSupported === false ? '<span class="tag" style="background:rgba(248,113,113,0.15);color:var(--danger);">仅外链</span>' : ''}
-    `;
-    const desc = document.createElement('div');
-    desc.className = 'desc';
-    desc.textContent = agent.description;
-    const url = document.createElement('div');
-    url.className = 'url';
-    url.textContent = agent.externalUrl;
+  if (featuredList.length > 0) {
+    const label = document.createElement('div');
+    label.className = 'section-label';
+    label.innerHTML = '\u2605 \u63A8\u8350 Agent <span class="badge-count">(' + featuredList.length + ' \u4E2A)</span>';
+    el.appendChild(label);
+    featuredList.forEach(function(agent, idx) {
+      el.appendChild(createAgentCard(agent, idx, featuredList, 'featured'));
+    });
+  }
 
-    info.appendChild(nameRow);
-    info.appendChild(desc);
-    info.appendChild(url);
+  if (featuredList.length > 0 && regularList.length > 0) {
+    const divider = document.createElement('hr');
+    divider.className = 'section-divider';
+    el.appendChild(divider);
+  }
 
-    // Actions
-    const actions = document.createElement('div');
-    actions.className = 'actions';
-    actions.innerHTML = `
-      <button class="btn btn-ghost btn-sm" onclick="moveAgent('${agent.id}', -1)" ${idx === 0 ? 'disabled style="opacity:0.3"' : ''}>↑</button>
-      <button class="btn btn-ghost btn-sm" onclick="moveAgent('${agent.id}', 1)" ${idx === list.length - 1 ? 'disabled style="opacity:0.3"' : ''}>↓</button>
-      <button class="btn btn-ghost btn-sm" onclick="openEditModal('${agent.id}')">编辑</button>
-      <button class="btn btn-danger btn-sm" onclick="deleteAgent('${agent.id}')">下架</button>
-    `;
+  if (regularList.length > 0) {
+    const label = document.createElement('div');
+    label.className = 'section-label';
+    label.innerHTML = '\u5168\u90E8 Agent <span class="badge-count">(' + regularList.length + ' \u4E2A)</span>';
+    el.appendChild(label);
+    regularList.forEach(function(agent, idx) {
+      el.appendChild(createAgentCard(agent, idx, regularList, 'regular'));
+    });
+  }
 
-    card.appendChild(drag);
-    card.appendChild(icon);
-    card.appendChild(info);
-    card.appendChild(actions);
-
-    // Drag events
-    card.addEventListener('dragstart', () => card.classList.add('dragging'));
-    card.addEventListener('dragend', () => card.classList.remove('dragging'));
-    card.addEventListener('dragover', e => { e.preventDefault(); swapCards(card); });
-
-    el.appendChild(card);
-  });
+  if (featuredList.length === 0 && regularList.length > 0) {
+    const tip = document.createElement('div');
+    tip.className = 'section-tip';
+    tip.textContent = '\u52FE\u9009\u201C\u63A8\u8350\u201D\u53EF\u5C06 Agent \u79FB\u5230\u4E0A\u65B9\u63A8\u8350\u533A';
+    el.appendChild(tip);
+  }
 }
-
 function swapCards(draggedOver) {
   const list = document.getElementById('agent-list');
   const dragging = list.querySelector('.dragging');
   if (!dragging || dragging === draggedOver) return;
 
-  const filterList = filteredAgents();
+  const fromSection = dragging.dataset.section;
+  const toSection = draggedOver.dataset.section;
+  if (fromSection !== toSection) return;
+
   const fromId = dragging.dataset.id;
   const toId = draggedOver.dataset.id;
   const fromIdx = agents.findIndex(a => a.id === fromId);
   const toIdx = agents.findIndex(a => a.id === toId);
   if (fromIdx === -1 || toIdx === -1) return;
 
-  // Swap in full agents array
   [agents[fromIdx], agents[toIdx]] = [agents[toIdx], agents[fromIdx]];
   renderAgents();
-  addLog(`↕️ 交换位置: ${agents[fromIdx].name} ↔ ${agents[toIdx].name}`);
-}
-
-function moveAgent(id, dir) {
-  const filterList = filteredAgents();
-  const filterIdx = filterList.findIndex(a => a.id === id);
-  if (filterIdx === -1) return;
-  const newFilterIdx = filterIdx + dir;
-  if (newFilterIdx < 0 || newFilterIdx >= filterList.length) return;
-
-  const fullIdx = agents.findIndex(a => a.id === id);
-  const fullTargetIdx = agents.findIndex(a => a.id === filterList[newFilterIdx].id);
-  if (fullIdx === -1 || fullTargetIdx === -1) return;
-
-  [agents[fullIdx], agents[fullTargetIdx]] = [agents[fullTargetIdx], agents[fullIdx]];
-  addLog(`↕️ 移动: ${agents[fullIdx].name}`);
-  renderAgents();
+  addLog('\u4EA4\u6362\u4F4D\u7F6E: ' + agents[fromIdx].name + ' <-> ' + agents[toIdx].name);
 }
 
 function deleteAgent(id) {
