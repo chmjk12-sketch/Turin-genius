@@ -35,7 +35,7 @@
       "externalUrl": "https://cfa-stock.chmjk67.top/",
       "embedUrl": "https://cfa-stock.chmjk67.top/",
       "lastUpdated": "2025-06-11",
-      "featured": false
+      "featured": true
     },
     {
       "id": "doubao",
@@ -108,7 +108,7 @@
       "externalUrl": "https://claude.ai",
       "embedUrl": "https://claude.ai",
       "lastUpdated": "2025-06-06",
-      "featured": true,
+      "featured": false,
       "embedSupported": false
     },
     {
