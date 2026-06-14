@@ -158,6 +158,19 @@
       "embedUrl": "/admin/",
       "lastUpdated": "2025-06-11",
       "embedSupported": true
+    },
+    {
+      "id": "agent-administrator",
+      "name": "Agent Administrator",
+      "description": "Agent 控制平面管理后台，追踪所有 Agent 执行记录、版本、成本与状态监控。",
+      "icon": "⚙️",
+      "iconBg": "from-slate-600 to-gray-700",
+      "category": "系统管理",
+      "externalUrl": "https://administrator.chmjk67.top/executions",
+      "embedUrl": "https://administrator.chmjk67.top/executions",
+      "lastUpdated": "2025-06-14",
+      "featured": false,
+      "embedSupported": true
     }
   ]
 }
