@@ -171,6 +171,18 @@
       "lastUpdated": "2025-06-14",
       "featured": false,
       "embedSupported": true
+    },
+    {
+      "id": "triz-ifr",
+      "name": "TRIZ_IFR 问题求解",
+      "description": "基于 TRIZ 理论的理想最终结果(IFR)问题求解工具，辅助创新设计与技术矛盾分析。",
+      "icon": "💡",
+      "iconBg": "from-purple-600 to-indigo-700",
+      "category": "创新工具",
+      "externalUrl": "http://39.105.86.184:3010/",
+      "embedUrl": "http://39.105.86.184:3010/",
+      "lastUpdated": "2025-06-16",
+      "featured": false
     }
   ]
 }
