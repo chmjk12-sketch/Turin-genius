@@ -183,6 +183,18 @@
       "embedUrl": "http://39.105.86.184:3010/",
       "lastUpdated": "2025-06-16",
       "featured": false
+    },
+    {
+      "id": "ara",
+      "name": "ARA",
+      "description": "Adaptive Reality Agent—适应性现实 Agent，支持多模态交互与智能任务执行。",
+      "icon": "🤖",
+      "iconBg": "from-violet-600 to-purple-700",
+      "category": "对话助手",
+      "externalUrl": "https://ara.chmjk67.top/",
+      "embedUrl": "https://ara.chmjk67.top/",
+      "lastUpdated": "2025-06-16",
+      "featured": false
     }
   ]
 }
