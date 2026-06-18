@@ -964,6 +964,29 @@ function renderAgents() {
     el.appendChild(tip);
   }
 }
+function moveAgent(id, direction, sectionType) {
+  var list = sectionType === 'featured' ? agents.filter(function(a) { return a.featured; }) : agents.filter(function(a) { return !a.featured; });
+  var idx = list.findIndex(function(a) { return a.id === id; });
+  if (idx === -1) return;
+  var targetIdx = idx + direction;
+  if (targetIdx < 0 || targetIdx >= list.length) return;
+  
+  var agentA = list[idx];
+  var agentB = list[targetIdx];
+  var realA = agents.findIndex(function(a) { return a.id === agentA.id; });
+  var realB = agents.findIndex(function(a) { return a.id === agentB.id; });
+  if (realA === -1 || realB === -1) return;
+  
+  // Swap in the master array
+  var tmp = agents[realA];
+  agents[realA] = agents[realB];
+  agents[realB] = tmp;
+  
+  addLog('↑ ' + agentA.name + ' ' + (direction < 0 ? '上移' : '下移'));
+  renderAgents();
+  markDirty();
+}
+
 function swapCards(draggedOver) {
   const list = document.getElementById('agent-list');
   const dragging = list.querySelector('.dragging');
