@@ -38,6 +38,69 @@
       "featured": true
     },
     {
+      "id": "ara",
+      "name": "ARA",
+      "description": "Adaptive Reality Agent—适应性现实 Agent，支持多模态交互与智能任务执行。",
+      "icon": "🤖",
+      "iconBg": "from-violet-600 to-purple-700",
+      "category": "对话助手",
+      "externalUrl": "https://ara.chmjk67.top/",
+      "embedUrl": "https://ara.chmjk67.top/",
+      "lastUpdated": "2025-06-16",
+      "featured": false
+    },
+    {
+      "id": "agent-store-admin",
+      "name": "Agent Store 管理",
+      "description": "Agent Store 应用商店管理后台，支持上架/下架应用、调整分类排序、管理图标等操作。",
+      "icon": "⚙️",
+      "iconBg": "from-violet-600 to-indigo-700",
+      "category": "开发工具",
+      "externalUrl": "/admin/",
+      "embedUrl": "/admin/",
+      "lastUpdated": "2025-06-11",
+      "embedSupported": true,
+      "featured": true
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "description": "OpenAI 对话式 AI 助手，支持多轮对话、代码生成、文档分析与创意写作。",
+      "icon": "💬",
+      "iconBg": "from-emerald-600 to-teal-700",
+      "category": "对话助手",
+      "externalUrl": "https://chatgpt.com",
+      "embedUrl": "https://chatgpt.com",
+      "lastUpdated": "2025-06-07",
+      "featured": false,
+      "embedSupported": false
+    },
+    {
+      "id": "triz-ifr",
+      "name": "TRIZ_IFR 问题求解",
+      "description": "基于 TRIZ 理论的理想最终结果(IFR)问题求解工具，辅助创新设计与技术矛盾分析。",
+      "icon": "💡",
+      "iconBg": "from-purple-600 to-indigo-700",
+      "category": "创新工具",
+      "externalUrl": "https://triz-ifr.chmjk67.top/",
+      "embedUrl": "https://triz-ifr.chmjk67.top/",
+      "lastUpdated": "2025-06-16",
+      "featured": false
+    },
+    {
+      "id": "agent-administrator",
+      "name": "Agent Administrator",
+      "description": "Agent 控制平面管理后台，追踪所有 Agent 执行记录、版本、成本与状态监控。",
+      "icon": "⚙️",
+      "iconBg": "from-slate-600 to-gray-700",
+      "category": "系统管理",
+      "externalUrl": "https://administrator.chmjk67.top/executions",
+      "embedUrl": "https://administrator.chmjk67.top/executions",
+      "lastUpdated": "2025-06-14",
+      "featured": false,
+      "embedSupported": true
+    },
+    {
       "id": "doubao",
       "name": "豆包",
       "description": "字节跳动推出的 AI 对话助手，支持多轮对话、文档分析、AI 搜索与创意写作，响应迅速。",
@@ -59,19 +122,6 @@
       "externalUrl": "https://gemini.google.com/",
       "embedUrl": "https://gemini.google.com/",
       "lastUpdated": "2025-06-11",
-      "embedSupported": false
-    },
-    {
-      "id": "chatgpt",
-      "name": "ChatGPT",
-      "description": "OpenAI 对话式 AI 助手，支持多轮对话、代码生成、文档分析与创意写作。",
-      "icon": "💬",
-      "iconBg": "from-emerald-600 to-teal-700",
-      "category": "对话助手",
-      "externalUrl": "https://chatgpt.com",
-      "embedUrl": "https://chatgpt.com",
-      "lastUpdated": "2025-06-07",
-      "featured": true,
       "embedSupported": false
     },
     {
@@ -99,19 +149,6 @@
       "embedSupported": false
     },
     {
-      "id": "claude",
-      "name": "Claude",
-      "description": "Anthropic 出品的长上下文 AI 助手，擅长分析、写作与复杂推理任务。",
-      "icon": "🧠",
-      "iconBg": "from-orange-600 to-amber-700",
-      "category": "对话助手",
-      "externalUrl": "https://claude.ai",
-      "embedUrl": "https://claude.ai",
-      "lastUpdated": "2025-06-06",
-      "featured": false,
-      "embedSupported": false
-    },
-    {
       "id": "perplexity",
       "name": "Perplexity",
       "description": "AI 搜索引擎，提供带来源引用的实时答案，适合研究与信息检索。",
@@ -124,15 +161,16 @@
       "embedSupported": false
     },
     {
-      "id": "midjourney",
-      "name": "Midjourney",
-      "description": "高质量 AI 图像生成工具，通过自然语言描述创作艺术与视觉内容。",
-      "icon": "🎨",
-      "iconBg": "from-fuchsia-600 to-purple-700",
-      "category": "创意设计",
-      "externalUrl": "https://www.midjourney.com",
-      "embedUrl": "https://www.midjourney.com",
-      "lastUpdated": "2025-06-02",
+      "id": "claude",
+      "name": "Claude",
+      "description": "Anthropic 出品的长上下文 AI 助手，擅长分析、写作与复杂推理任务。",
+      "icon": "🧠",
+      "iconBg": "from-orange-600 to-amber-700",
+      "category": "对话助手",
+      "externalUrl": "https://claude.ai",
+      "embedUrl": "https://claude.ai",
+      "lastUpdated": "2025-06-06",
+      "featured": false,
       "embedSupported": false
     },
     {
@@ -148,53 +186,16 @@
       "embedSupported": true
     },
     {
-      "id": "agent-store-admin",
-      "name": "Agent Store 管理",
-      "description": "Agent Store 应用商店管理后台，支持上架/下架应用、调整分类排序、管理图标等操作。",
-      "icon": "⚙️",
-      "iconBg": "from-violet-600 to-indigo-700",
-      "category": "开发工具",
-      "externalUrl": "/admin/",
-      "embedUrl": "/admin/",
-      "lastUpdated": "2025-06-11",
-      "embedSupported": true
-    },
-    {
-      "id": "agent-administrator",
-      "name": "Agent Administrator",
-      "description": "Agent 控制平面管理后台，追踪所有 Agent 执行记录、版本、成本与状态监控。",
-      "icon": "⚙️",
-      "iconBg": "from-slate-600 to-gray-700",
-      "category": "系统管理",
-      "externalUrl": "https://administrator.chmjk67.top/executions",
-      "embedUrl": "https://administrator.chmjk67.top/executions",
-      "lastUpdated": "2025-06-14",
-      "featured": false,
-      "embedSupported": true
-    },
-    {
-      "id": "triz-ifr",
-      "name": "TRIZ_IFR 问题求解",
-      "description": "基于 TRIZ 理论的理想最终结果(IFR)问题求解工具，辅助创新设计与技术矛盾分析。",
-      "icon": "💡",
-      "iconBg": "from-purple-600 to-indigo-700",
-      "category": "创新工具",
-      "externalUrl": "https://triz-ifr.chmjk67.top/",
-      "embedUrl": "https://triz-ifr.chmjk67.top/",
-      "lastUpdated": "2025-06-16",
-      "featured": false
-    },
-    {
-      "id": "ara",
-      "name": "ARA",
-      "description": "Adaptive Reality Agent—适应性现实 Agent，支持多模态交互与智能任务执行。",
-      "icon": "🤖",
-      "iconBg": "from-violet-600 to-purple-700",
-      "category": "对话助手",
-      "externalUrl": "https://ara.chmjk67.top/",
-      "embedUrl": "https://ara.chmjk67.top/",
-      "lastUpdated": "2025-06-16",
-      "featured": false
+      "id": "midjourney",
+      "name": "Midjourney",
+      "description": "高质量 AI 图像生成工具，通过自然语言描述创作艺术与视觉内容。",
+      "icon": "🎨",
+      "iconBg": "from-fuchsia-600 to-purple-700",
+      "category": "创意设计",
+      "externalUrl": "https://www.midjourney.com",
+      "embedUrl": "https://www.midjourney.com",
+      "lastUpdated": "2025-06-02",
+      "embedSupported": false
     }
   ]
 }
