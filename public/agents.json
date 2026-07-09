@@ -122,6 +122,18 @@
       "embedUrl": "https://github.com",
       "lastUpdated": "2025-06-11",
       "embedSupported": false
+    },
+    {
+      "id": "图灵元智",
+      "name": "图灵元智",
+      "description": "",
+      "icon": "🤖",
+      "iconBg": "from-neutral-600 to-neutral-800",
+      "category": "搜索研究",
+      "externalUrl": "https://toi.chmjk67.top/",
+      "embedUrl": "https://toi.chmjk67.top/",
+      "lastUpdated": "2026-07-09",
+      "embedSupported": true
     }
   ]
 }
