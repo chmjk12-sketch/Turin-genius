@@ -196,6 +196,30 @@
       "embedUrl": "https://www.midjourney.com",
       "lastUpdated": "2025-06-02",
       "embedSupported": false
+    },
+    {
+      "id": "questionnaire",
+      "name": "问卷调查",
+      "description": "AI培训需求调研问卷，收集用户需求与反馈。",
+      "icon": "📝",
+      "iconBg": "from-blue-600 to-indigo-700",
+      "category": "生产力",
+      "externalUrl": "https://questionnaire.chmjk67.top/",
+      "embedUrl": "https://questionnaire.chmjk67.top/",
+      "lastUpdated": "2025-06-23",
+      "featured": false
+    },
+    {
+      "id": "questionnaire-admin",
+      "name": "问卷管理后台",
+      "description": "问卷调查管理后台，查看统计数据与管理问卷。",
+      "icon": "📊",
+      "iconBg": "from-emerald-500 to-teal-600",
+      "category": "系统管理",
+      "externalUrl": "https://questionnaire-admin.chmjk67.top/admin",
+      "embedUrl": "https://questionnaire-admin.chmjk67.top/admin",
+      "lastUpdated": "2025-06-23",
+      "featured": false
     }
   ]
 }
