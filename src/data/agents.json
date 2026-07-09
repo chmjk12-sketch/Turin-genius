@@ -63,6 +63,18 @@
       "featured": true
     },
     {
+      "id": "questionnaire-admin",
+      "name": "问卷管理后台",
+      "description": "问卷调查管理后台，查看统计数据与管理问卷。",
+      "icon": "📊",
+      "iconBg": "from-emerald-500 to-teal-600",
+      "category": "系统管理",
+      "externalUrl": "https://questionnaire-admin.chmjk67.top/admin",
+      "embedUrl": "https://questionnaire-admin.chmjk67.top/admin",
+      "lastUpdated": "2025-06-23",
+      "featured": false
+    },
+    {
       "id": "ara",
       "name": "ARA",
       "description": "Adaptive Reality Agent—适应性现实 Agent，支持多模态交互与智能任务执行。",
@@ -73,19 +85,6 @@
       "embedUrl": "https://ara.chmjk67.top/",
       "lastUpdated": "2025-06-16",
       "featured": false
-    },
-    {
-      "id": "chatgpt",
-      "name": "ChatGPT",
-      "description": "OpenAI 对话式 AI 助手，支持多轮对话、代码生成、文档分析与创意写作。",
-      "icon": "💬",
-      "iconBg": "from-emerald-600 to-teal-700",
-      "category": "对话助手",
-      "externalUrl": "https://chatgpt.com",
-      "embedUrl": "https://chatgpt.com",
-      "lastUpdated": "2025-06-07",
-      "featured": false,
-      "embedSupported": false
     },
     {
       "id": "triz-ifr",
@@ -113,30 +112,6 @@
       "embedSupported": true
     },
     {
-      "id": "doubao",
-      "name": "豆包",
-      "description": "字节跳动推出的 AI 对话助手，支持多轮对话、文档分析、AI 搜索与创意写作，响应迅速。",
-      "icon": "🫘",
-      "iconBg": "from-red-500 to-orange-600",
-      "category": "对话助手",
-      "externalUrl": "https://www.doubao.com",
-      "embedUrl": "https://www.doubao.com",
-      "lastUpdated": "2025-06-10",
-      "embedSupported": false
-    },
-    {
-      "id": "gemini",
-      "name": "Gemini",
-      "description": "Google 推出的多模态 AI 助手，支持文本、图像、代码与音频理解，融合 Google 生态。",
-      "icon": "✨",
-      "iconBg": "from-blue-500 to-cyan-600",
-      "category": "对话助手",
-      "externalUrl": "https://gemini.google.com/",
-      "embedUrl": "https://gemini.google.com/",
-      "lastUpdated": "2025-06-11",
-      "embedSupported": false
-    },
-    {
       "id": "github",
       "name": "GitHub",
       "description": "全球最大的代码托管与协作开发平台，支持 Git 版本控制、Issue 管理、CI/CD 与开源社区。",
@@ -146,79 +121,6 @@
       "externalUrl": "https://github.com",
       "embedUrl": "https://github.com",
       "lastUpdated": "2025-06-11",
-      "embedSupported": false
-    },
-    {
-      "id": "deepseek",
-      "name": "DeepSeek",
-      "description": "深度求索推出的 AI 对话助手，擅长深度推理、代码生成与复杂问题分析，支持长上下文。",
-      "icon": "🔮",
-      "iconBg": "from-blue-600 to-indigo-700",
-      "category": "对话助手",
-      "externalUrl": "https://platform.deepseek.com/",
-      "embedUrl": "https://platform.deepseek.com/",
-      "lastUpdated": "2025-06-11",
-      "embedSupported": false
-    },
-    {
-      "id": "perplexity",
-      "name": "Perplexity",
-      "description": "AI 搜索引擎，提供带来源引用的实时答案，适合研究与信息检索。",
-      "icon": "🔍",
-      "iconBg": "from-cyan-600 to-blue-700",
-      "category": "搜索研究",
-      "externalUrl": "https://www.perplexity.ai",
-      "embedUrl": "https://www.perplexity.ai",
-      "lastUpdated": "2025-06-04",
-      "embedSupported": false
-    },
-    {
-      "id": "claude",
-      "name": "Claude",
-      "description": "Anthropic 出品的长上下文 AI 助手，擅长分析、写作与复杂推理任务。",
-      "icon": "🧠",
-      "iconBg": "from-orange-600 to-amber-700",
-      "category": "对话助手",
-      "externalUrl": "https://claude.ai",
-      "embedUrl": "https://claude.ai",
-      "lastUpdated": "2025-06-06",
-      "featured": false,
-      "embedSupported": false
-    },
-    {
-      "id": "questionnaire-admin",
-      "name": "问卷管理后台",
-      "description": "问卷调查管理后台，查看统计数据与管理问卷。",
-      "icon": "📊",
-      "iconBg": "from-emerald-500 to-teal-600",
-      "category": "系统管理",
-      "externalUrl": "https://questionnaire-admin.chmjk67.top/admin",
-      "embedUrl": "https://questionnaire-admin.chmjk67.top/admin",
-      "lastUpdated": "2025-06-23",
-      "featured": false
-    },
-    {
-      "id": "demo-embed",
-      "name": "Demo Embed",
-      "description": "可正常内嵌的演示 Agent，用于测试 iframe 加载与返回列表交互。",
-      "icon": "🌐",
-      "iconBg": "from-sky-600 to-blue-700",
-      "category": "演示",
-      "externalUrl": "https://example.com",
-      "embedUrl": "https://example.com",
-      "lastUpdated": "2025-06-10",
-      "embedSupported": true
-    },
-    {
-      "id": "midjourney",
-      "name": "Midjourney",
-      "description": "高质量 AI 图像生成工具，通过自然语言描述创作艺术与视觉内容。",
-      "icon": "🎨",
-      "iconBg": "from-fuchsia-600 to-purple-700",
-      "category": "创意设计",
-      "externalUrl": "https://www.midjourney.com",
-      "embedUrl": "https://www.midjourney.com",
-      "lastUpdated": "2025-06-02",
       "embedSupported": false
     }
   ]
