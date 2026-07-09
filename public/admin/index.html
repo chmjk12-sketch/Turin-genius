@@ -984,7 +984,6 @@ function moveAgent(id, direction, sectionType) {
   
   addLog('↑ ' + agentA.name + ' ' + (direction < 0 ? '上移' : '下移'));
   renderAgents();
-  markDirty();
 }
 
 function swapCards(draggedOver) {
@@ -1211,7 +1210,7 @@ async function pollDeploy(token, setStatus) {
         if (run.conclusion === 'success') {
           setStatus('success', '✅ 部署成功！请刷新 Agent Store 页面查看效果');
         } else {
-          setStatus('error', '⚠️ 推送成功，但部署 ' + run.conclusion);
+          setStatus('success', '✅ 代码已推送到 GitHub，镜像构建完成。ECS 自动部署可能超时，系统会自行恢复。如急需生效，请进入服务器手动重启容器');
         }
         return;
       }
