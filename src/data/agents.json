@@ -134,6 +134,18 @@
       "embedUrl": "https://toi.chmjk67.top/",
       "lastUpdated": "2026-07-09",
       "embedSupported": true
+    },
+    {
+      "id": "toi",
+      "name": "图灵元智",
+      "description": "企业级 AI Runtime 基础设施平台，帮助企业构建属于自己的智能组织。",
+      "icon": "🤖",
+      "iconBg": "from-blue-600 to-indigo-700",
+      "category": "生产力",
+      "externalUrl": "https://toi.chmjk67.top/",
+      "embedUrl": "https://toi.chmjk67.top/",
+      "lastUpdated": "2025-06-23",
+      "featured": false
     }
   ]
 }
