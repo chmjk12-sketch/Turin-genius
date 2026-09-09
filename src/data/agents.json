@@ -1,6 +1,18 @@
 {
   "agents": [
     {
+      "id": "ai-commerce",
+      "name": "AI市场洞察",
+      "description": "市场分析与洞察系统，聚合多维数据源，提供总览看板与智能市场情报。",
+      "icon": "📊",
+      "iconBg": "from-blue-600 to-indigo-700",
+      "category": "搜索研究",
+      "externalUrl": "https://ai-commerce.chmjk67.top/",
+      "embedUrl": "https://ai-commerce.chmjk67.top/",
+      "lastUpdated": "2026-09-09",
+      "featured": true
+    },
+    {
       "id": "root-cause-agent",
       "name": "根因分析Agent",
       "description": "输入商业痛点，智能定位根因与解决方案。支持 AI 深度分析配置，提供历史记录与收藏功能。",
@@ -136,30 +148,6 @@
       "embedSupported": true
     },
     {
-      "id": "toi",
-      "name": "图灵元智",
-      "description": "企业级 AI Runtime 基础设施平台，帮助企业构建属于自己的智能组织。",
-      "icon": "🤖",
-      "iconBg": "from-blue-600 to-indigo-700",
-      "category": "生产力",
-      "externalUrl": "https://toi.chmjk67.top/",
-      "embedUrl": "https://toi.chmjk67.top/",
-      "lastUpdated": "2025-06-23",
-      "featured": false
-    },
-    {
-      "id": "ai-commerce",
-      "name": "AI市场洞察",
-      "description": "市场分析与洞察系统，聚合多维数据源，提供总览看板与智能市场情报。",
-      "icon": "📊",
-      "iconBg": "from-blue-600 to-indigo-700",
-      "category": "搜索研究",
-      "externalUrl": "https://ai-commerce.chmjk67.top/",
-      "embedUrl": "https://ai-commerce.chmjk67.top/",
-      "lastUpdated": "2026-09-08",
-      "featured": false
-    },
-    {
       "id": "paddle-ocr",
       "name": "PaddleOCR 文档识别",
       "description": "基于 PaddleOCR 的文档识别工具，支持 PDF/PPT 转 Markdown，并辅助知识还原。",
@@ -168,7 +156,7 @@
       "category": "生产力",
       "externalUrl": "https://ocr.chmjk67.top/",
       "embedUrl": "https://ocr.chmjk67.top/",
-      "lastUpdated": "2026-09-08",
+      "lastUpdated": "2026-09-09",
       "featured": false
     },
     {
@@ -178,10 +166,11 @@
       "icon": "🎙️",
       "iconBg": "from-teal-500 to-cyan-600",
       "category": "生产力",
-      "externalUrl": "https://asr.chmjk67.top/",
-      "embedUrl": "https://asr.chmjk67.top/",
-      "lastUpdated": "2026-09-08",
-      "featured": false
+      "externalUrl": "https://asr.chmjk67.top/#/live",
+      "embedUrl": "https://asr.chmjk67.top/#/live",
+      "lastUpdated": "2026-09-09",
+      "featured": false,
+      "embedSupported": false
     },
     {
       "id": "sales-market",
@@ -192,7 +181,7 @@
       "category": "生产力",
       "externalUrl": "https://market.chmjk67.top/",
       "embedUrl": "https://market.chmjk67.top/",
-      "lastUpdated": "2026-09-08",
+      "lastUpdated": "2026-09-09",
       "featured": false,
       "embedSupported": false
     },
@@ -205,8 +194,9 @@
       "category": "系统管理",
       "externalUrl": "https://bx.chmjk67.top/",
       "embedUrl": "https://bx.chmjk67.top/",
-      "lastUpdated": "2026-09-08",
-      "featured": false
+      "lastUpdated": "2026-09-09",
+      "featured": false,
+      "embedSupported": false
     }
   ]
 }
